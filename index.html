@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đêm hội Thoi – Vuông</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#f8f5fc;--surface:#ffffff;--ink:#1f1633;--muted:#625a78;--line:#e0d9ee;--accent:#6d28d9;--accent2:#ea580c;--soft:#efe9f8;--figbg:#fdfcff;--ok:#15803d;--no:#dc2626;--okbg:#e3f4e7;--nobg:#fde8e8;--onAccent:#ffffff;--ring:rgba(234,88,12,.25);--disp:'Nunito','Be Vietnam Pro',sans-serif;--body:'Be Vietnam Pro',system-ui,sans-serif;--dispW:900;--emStyle:normal;--heroBg:#160c2e;--heroInk:#f7f2ff;--heroKick:#fdba74;--heroAccent:#fb923c;--heroSub:#d9cdf5;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120c1f;--surface:#1b1430;--ink:#efeafb;--muted:#aea4c9;--line:#30264d;--accent:#b794ff;--accent2:#ff8a4c;--soft:#231a3c;--figbg:#160f28;--ok:#4ade80;--no:#f87171;--okbg:#15301f;--nobg:#3a1a1a;--onAccent:#1a0d33;--ring:rgba(255,138,76,.3);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#120c1f;--surface:#1b1430;--ink:#efeafb;--muted:#aea4c9;--line:#30264d;--accent:#b794ff;--accent2:#ff8a4c;--soft:#231a3c;--figbg:#160f28;--ok:#4ade80;--no:#f87171;--okbg:#15301f;--nobg:#3a1a1a;--onAccent:#1a0d33;--ring:rgba(255,138,76,.3);color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+button,input{font:inherit;color:inherit}
+h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.1;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:16px;padding-block:0 48px;display:grid;gap:22px}
+.hero{position:relative;overflow:hidden;border-radius:0 0 24px 24px;background:var(--heroBg);color:var(--heroInk);min-height:260px;display:grid;align-items:end}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero .in{position:relative;padding:24px clamp(16px,3vw,34px);display:grid;gap:8px;max-width:780px}
+.kick{font:700 12.5px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--heroKick)}
+.hero h1{font-size:clamp(40px,6.6vw,78px);font-weight:var(--dispW)}
+.hero h1 em{font-style:var(--emStyle);color:var(--heroAccent)}
+.hero .s{color:var(--heroSub);max-width:46em}
+.bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.prog{display:flex;align-items:center;gap:12px}
+.prog svg{width:56px;height:56px}
+.prog b{font:var(--dispW) 22px/1 var(--disp)}
+.prog small{display:block;color:var(--muted);font-size:13px}
+.stamps{display:flex;gap:6px;flex-wrap:wrap}
+.stamps i{width:30px;height:30px;border-radius:50%;border:2px dashed var(--line);display:grid;place-items:center;font:700 12px var(--body);color:var(--muted);font-style:normal}
+.stamps i.on{border:2px solid var(--accent);background:var(--accent);color:var(--onAccent)}
+nav.tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+nav.tabs button{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;text-align:left;cursor:pointer;display:grid;gap:2px}
+nav.tabs button small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+nav.tabs button span{font-weight:700;line-height:1.25}
+nav.tabs button[aria-selected="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--soft)}
+nav.tabs button.done small::after{content:" ✓";color:var(--ok)}
+.st{display:grid;gap:18px}
+.sthead{display:grid;gap:8px;max-width:62em}
+.sthead h2{font-size:clamp(30px,4.4vw,46px);font-weight:var(--dispW)}
+.sthead p{color:var(--muted)}
+.know{background:var(--soft);border-left:4px solid var(--accent);border-radius:12px;padding:12px 16px;display:grid;gap:6px;font-size:15px}
+.know b{color:var(--accent)}
+.act{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(14px,2.6vw,24px);display:grid;gap:14px}
+.act.done{border-color:var(--ok)}
+.act h3{font-size:24px;font-weight:var(--dispW)}
+.act .q{font-weight:600}
+.act .tag{font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent2)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.row .fb{flex:1 1 240px;min-width:0}
+.fb{font-weight:600}
+.fb.ok{color:var(--ok)} .fb.no{color:var(--no)}
+.ex{font-size:14px;color:var(--muted);border-left:3px solid var(--accent2);padding-left:10px}
+.btn{background:var(--surface);border:2px solid var(--ink);border-radius:999px;padding:8px 18px;cursor:pointer;font-weight:700}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--onAccent)}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.opt{text-align:left;background:var(--soft);border:2px solid transparent;border-radius:12px;padding:9px 12px;cursor:pointer}
+.opt.ok{border-color:var(--ok);background:var(--okbg)} .opt.no{border-color:var(--no);background:var(--nobg);opacity:.8}
+.opt:disabled{cursor:default}
+.ord{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:o}
+.ord li{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;background:var(--soft);border-radius:12px;padding:8px 10px;border:2px solid transparent;counter-increment:o}
+.ord li::before{content:counter(o);font:var(--dispW) 20px var(--disp);color:var(--accent);text-align:center}
+.ord li.ok{border-color:var(--ok)} .ord li.no{border-color:var(--no)}
+.ord .mv{display:flex;gap:4px}
+.ord .mv button{width:34px;height:34px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600}
+.chip[aria-pressed="true"]{border-color:var(--accent2);box-shadow:0 0 0 3px var(--ring)}
+.chip.used{opacity:.35}
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.slot{border:2px dashed var(--line);border-radius:14px;padding:10px 12px;cursor:pointer;background:var(--soft);display:grid;gap:4px;text-align:left;min-height:72px}
+.slot b{font-weight:700}
+.slot span{color:var(--accent);font-weight:700}
+.slot.ok,.bin.ok{border-style:solid;border-color:var(--ok);background:var(--okbg)}
+.slot.no,.bin.no{border-style:solid;border-color:var(--no);background:var(--nobg)}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.bin{border:2px dashed var(--line);border-radius:14px;padding:10px;background:var(--soft);cursor:pointer;display:grid;gap:8px;align-content:start;min-height:120px}
+.bin h4{margin:0;font:var(--dispW) 20px/1.15 var(--disp);color:var(--accent)}
+.bin .in{display:flex;flex-wrap:wrap;gap:6px}
+.bin .in span{background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;font-size:14px;font-weight:600}
+.bin .in span.ok{border-color:var(--ok);color:var(--ok)} .bin .in span.no{border-color:var(--no);color:var(--no)}
+.guess input[type=range]{width:100%;accent-color:var(--accent)}
+.gval{font:var(--dispW) 40px/1 var(--disp);color:var(--accent);font-variant-numeric:tabular-nums}
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;max-width:520px}
+.dots i{aspect-ratio:1;border-radius:50%;background:var(--line);transition:background .25s}
+.dots i.a{background:var(--accent)} .dots i.g{background:var(--accent2)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.cert{background:var(--surface);border:2px solid var(--accent2);border-radius:20px;padding:26px;display:grid;gap:10px;text-align:center;justify-items:center}
+.cert h3{font-size:38px;font-weight:var(--dispW);color:var(--accent)}
+.cert .who{font:var(--dispW) 30px var(--disp)}
+input.f{border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;background:var(--surface);min-width:0}
+.guide ul{margin:0;padding-left:1.2em;display:grid;gap:6px}
+#toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);max-width:calc(100% - 32px);width:max-content;text-align:center;background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:600;z-index:9}
+button:focus-visible,input:focus-visible,.slot:focus-visible,.bin:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+footer{text-align:center;font-size:12px;color:var(--muted)}
+.tl{display:grid;gap:14px}
+@media (min-width:860px){.tl{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}}
+.fig{background:var(--figbg);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:8px}
+.fig svg{display:block;width:100%;height:auto}
+.fig .bg{fill:var(--figbg)}
+.fig text{font-family:var(--body);fill:var(--ink)}
+.fig .lb{font-size:17px;font-weight:800} .fig .vl{font-size:15px;font-weight:800;fill:var(--accent)} .fig .sm{font-size:13px;font-weight:700;fill:var(--muted)} .fig .big{font:var(--dispW) 24px var(--disp);fill:var(--accent2)} .fig .hint2{font-size:14px;font-weight:700;fill:var(--accent2)} .fig .pk{font-size:10px;font-weight:800;fill:#fff}
+.sh{fill:color-mix(in srgb,var(--accent) 14%,transparent);stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round} .sh.sq{fill:color-mix(in srgb,var(--accent2) 18%,transparent)}
+.ed{stroke:var(--ink);stroke-width:2.5} .dg{stroke:var(--accent);stroke-width:2;stroke-dasharray:6 5} .tk{stroke:var(--accent2);stroke-width:2.2} .rta{fill:none;stroke:var(--ink);stroke-width:1.6} .am{fill:none;stroke:var(--accent2);stroke-width:1.8} .dt{fill:var(--ink)}
+.paper{fill:#fdf6e3;stroke:#c9b48a;stroke-width:1.5} .fold{stroke:#c9b48a;stroke-width:1.5;stroke-dasharray:4 4} .cutp{fill:color-mix(in srgb,var(--accent2) 20%,transparent)} .cut{stroke:var(--accent2);stroke-width:3;stroke-dasharray:9 5}
+.kite{fill:color-mix(in srgb,var(--accent) 16%,transparent);stroke:var(--ink);stroke-width:2} .kite.rh{fill:color-mix(in srgb,#f97316 32%,transparent)} .kite.sq{fill:color-mix(in srgb,#a855f7 32%,transparent)}
+.stick{stroke:#a16207;stroke-width:6;stroke-linecap:round} .tail path,.tail{fill:none;stroke:var(--accent2);stroke-width:2.5}
+.mesh{fill:none;stroke:var(--ink);stroke-width:3;stroke-linejoin:round} .post{fill:var(--muted)} .gr{stroke:var(--line);stroke-width:3} .dim{stroke:var(--accent);stroke-width:2}
+.cutsq{fill:color-mix(in srgb,var(--no) 22%,transparent);stroke:var(--no);stroke-dasharray:4 3} .base{fill:color-mix(in srgb,var(--accent) 16%,transparent);stroke:var(--accent);stroke-width:2}
+.boxb{fill:#4c1d95} .boxf{fill:#7c3aed} .boxs{fill:#6d28d9} .boxt{fill:#a78bfa;opacity:.35}
+.ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0} .ctl label{font-weight:700;min-width:120px;flex:1 1 100%}
+@media (min-width:560px){.ctl label{flex:0 0 auto}}
+.ctl input[type=range]{flex:1 1 160px;accent-color:var(--accent);min-width:0} .ctl output{font:800 17px var(--body);min-width:58px;color:var(--accent)}
+.btn.sm{padding:6px 12px;font-size:14px}
+.mt{border-collapse:collapse;width:100%;margin:8px 0;font-variant-numeric:tabular-nums} .mt th,.mt td{border:1.5px solid var(--line);padding:7px 10px} .mt th{background:var(--soft);text-align:left;font-weight:700} .mt td{font-weight:800;color:var(--accent)}
+.miss{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px} .miss li{padding:8px 12px 8px 36px;border-radius:10px;background:var(--soft);position:relative;font-weight:600}
+.miss li::before{content:"";position:absolute;left:12px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:4px;border:2px solid var(--muted)} .miss li.on{background:var(--okbg);color:var(--ok)} .miss li.on::before{background:var(--ok);border-color:var(--ok)}
+.chip[aria-pressed=true]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--surface));color:var(--accent)}
+.muted{color:var(--muted)}
+@media (max-width:560px){.opts{grid-template-columns:minmax(0,1fr)} .dots{grid-template-columns:repeat(10,1fr)}}
+</style>
+</head>
+<body>
+<header class="hero"><canvas id="deco" aria-hidden="true"></canvas><div class="in">
+  <p class="kick">Toán 8 · Chương III · Bài 14 · STEM</p><h1>Đêm hội <em>Thoi – Vuông</em></h1><p class="s">Gấp giấy cắt hình, đo đường chéo trong phòng thí nghiệm, làm thám tử dấu hiệu nhận biết – rồi trở thành kỹ sư nhí: buộc khung diều, kéo cổng xếp mắt cáo, thiết kế hộp quà “Trick or Treat”.</p>
+</div></header>
+<div class="wrap">
+  <div class="bar"><div class="prog"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="23" fill="none" stroke="var(--line)" stroke-width="6"/><circle id="ring" cx="28" cy="28" r="23" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linecap="round" stroke-dasharray="144.5" stroke-dashoffset="144.5" transform="rotate(-90 28 28)"/></svg><div><b id="progTxt">0</b><small id="progSub">hoạt động đã hoàn thành</small></div></div><div class="stamps" id="stamps"></div></div>
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Các phần học"></nav>
+  <main id="main"></main>
+  <footer>Học liệu số Toán 8 · Trường THCS Võ Thị Sáu, phường An Biên, Hải Phòng · Năm học 2026 – 2027</footer>
+</div>
+<div id="toast" hidden></div>
+<script>
+const APP = {"key": "vts-toan8-b14", "lesson": "Toán 8 – Bài 14. Hình thoi và hình vuông", "stations": [{"label": "Chặng 1", "name": "Gấp giấy – cắt – mở ra", "intro": "Gấp tờ giấy làm tư, cắt chéo một nhát rồi mở ra – em được hình gì? Khi nào thì được hình vuông?", "know": "<p><b>Hình thoi</b> là tứ giác có bốn cạnh bằng nhau. <b>Hình vuông</b> là tứ giác có bốn góc vuông và bốn cạnh bằng nhau. Hình thoi là một hình bình hành đặc biệt; hình vuông vừa là hình chữ nhật, vừa là hình thoi.</p>", "acts": [{"type": "fold", "tag": "Mô phỏng", "title": "Phòng cắt giấy", "q": "Chọn độ dài OA, OB rồi bấm “Cắt và mở tờ giấy”. Hoàn thành cả hai nhiệm vụ.", "missions": ["Cắt được một hình thoi (không phải hình vuông).", "Cắt được một hình vuông."], "ex": "Khi mở ra, bốn cạnh đều bằng AB nên tứ giác là hình thoi; hai nếp gấp là hai đường chéo, vuông góc và cắt nhau tại trung điểm O. Nếu OA = OB thì hai đường chéo bằng nhau nên được hình vuông."}, {"type": "mcq", "tag": "Suy luận", "title": "Hình thoi có là hình bình hành?", "q": "Hình thoi có phải là hình bình hành không?", "o": ["Có, vì các cạnh đối bằng nhau nên hình thoi có đủ tính chất của hình bình hành", "Không, vì hình thoi không có góc vuông", "Chỉ khi hình thoi có một góc vuông", "Không, vì hai đường chéo không bằng nhau"], "a": 0, "hint": "Tứ giác có các cạnh đối bằng nhau là hình gì?", "ex": "Hình thoi có các cạnh đối bằng nhau nên là hình bình hành: các góc đối bằng nhau, hai đường chéo cắt nhau tại trung điểm mỗi đường."}]}, {"label": "Chặng 2", "name": "Phòng thí nghiệm hình thoi", "intro": "Kéo thay đổi góc của hình thoi, đo hai đường chéo – điều gì luôn đúng?", "know": "<p><b>Định lí 1.</b> Trong hình thoi: a) hai đường chéo vuông góc với nhau; b) hai đường chéo là các đường phân giác của các góc trong hình thoi.<br><b>Định lí 3.</b> Trong hình vuông, hai đường chéo bằng nhau, vuông góc với nhau, cắt nhau tại trung điểm mỗi đường và là các đường phân giác của các góc.</p>", "acts": [{"type": "lab", "tag": "Mô phỏng", "title": "Đo đường chéo hình thoi", "q": "Kéo thanh trượt (hoặc bấm −1°, +1°) để thay đổi góc A, quan sát bảng số đo.", "props": [["AC ⊥ BD", 1], ["AC là phân giác của góc A", 1], ["AC = BD", 0], ["O là trung điểm của AC và BD", 1]], "ex": "Hình thoi: hai đường chéo vuông góc, cắt nhau tại trung điểm mỗi đường và là phân giác các góc. Chỉ khi góc A = 90° (hình vuông) thì hai đường chéo mới bằng nhau."}, {"type": "classify", "tag": "Đúng hay sai?", "title": "Kiểm tra khẳng định", "q": "Chạm vào một khẳng định, rồi chạm vào ô Đúng hoặc Sai.", "bins": ["Đúng", "Sai"], "items": [["Hình thoi có hai đường chéo vuông góc", 0], ["Hình vuông vừa là hình chữ nhật vừa là hình thoi", 0], ["Hình thoi có một góc vuông là hình vuông", 0], ["Hình chữ nhật có hai cạnh kề bằng nhau là hình vuông", 0], ["Hình thoi có hai đường chéo bằng nhau", 1], ["Tứ giác có hai đường chéo vuông góc là hình thoi", 1], ["Tứ giác có bốn cạnh bằng nhau là hình vuông", 1]], "ex": "Hai đường chéo của hình thoi chỉ bằng nhau khi đó là hình vuông. Tứ giác có hai đường chéo vuông góc chưa chắc là hình bình hành (ví dụ cái diều có hai cạnh kề bằng nhau). Tứ giác có bốn cạnh bằng nhau là hình thoi, chưa chắc có góc vuông."}]}, {"label": "Chặng 3", "name": "Thám tử dấu hiệu", "intro": "Quan sát kí hiệu trên hình, dùng dấu hiệu nhận biết để kết luận – hoặc phát hiện “chưa đủ dữ kiện”.", "know": "<p><b>Định lí 2 (dấu hiệu hình thoi):</b> hình bình hành có hai cạnh kề bằng nhau; hoặc có hai đường chéo vuông góc; hoặc có một đường chéo là phân giác của một góc – là hình thoi.<br><b>Định lí 4 (dấu hiệu hình vuông):</b> hình chữ nhật có hai cạnh kề bằng nhau; hoặc có hai đường chéo vuông góc; hoặc có một đường chéo là phân giác của một góc – là hình vuông. Hình thoi có một góc vuông, hoặc có hai đường chéo bằng nhau, là hình vuông.</p>", "acts": [{"type": "detect", "tag": "Nhận biết", "title": "Hình nào là hình thoi, hình vuông?", "q": "Đọc kí hiệu trên hình, chọn kết luận đúng.", "figs": [{"f": "pgAdj", "q": "Tứ giác ABCD có các góc đối bằng nhau (kí hiệu cung) và AB = BC.", "a": 0, "h": "Các góc đối bằng nhau → hình bình hành; thêm hai cạnh kề bằng nhau thì sao?", "ex": "Hình bình hành (các góc đối bằng nhau) có hai cạnh kề AB = BC nên là hình thoi."}, {"f": "kiteNo", "q": "Tứ giác ABCD có AC ⊥ BD tại O và OB = OD.", "a": 2, "h": "O chỉ là trung điểm của BD, chưa chắc là trung điểm của AC – tứ giác chưa chắc là hình bình hành.", "ex": "Chưa đủ để kết luận: O không là trung điểm của AC nên ABCD chưa là hình bình hành (đây là hình “cái diều”)."}, {"f": "diagRh", "q": "Tứ giác MNPQ có hai đường chéo vuông góc và cắt nhau tại trung điểm mỗi đường.", "a": 0, "h": "Hai đường chéo cắt nhau tại trung điểm mỗi đường → hình bình hành. Thêm vuông góc?", "ex": "Hình bình hành có hai đường chéo vuông góc là hình thoi. Hai đường chéo không bằng nhau nên không phải hình vuông."}, {"f": "rectAdj", "q": "Tứ giác EFGH có bốn góc vuông và EF = FG.", "a": 1, "h": "Bốn góc vuông → hình chữ nhật.", "ex": "Hình chữ nhật có hai cạnh kề bằng nhau là hình vuông."}, {"f": "rhRight", "q": "Tứ giác RSTU có bốn cạnh bằng nhau và góc S vuông.", "a": 1, "h": "Bốn cạnh bằng nhau → hình thoi.", "ex": "Hình thoi có một góc vuông là hình vuông."}, {"f": "rectPerp", "q": "Tứ giác ABCD có bốn góc vuông và hai đường chéo vuông góc.", "a": 1, "h": "Bốn góc vuông → hình chữ nhật.", "ex": "Hình chữ nhật có hai đường chéo vuông góc là hình vuông."}, {"f": "pgBis", "q": "ABCD là hình bình hành, đường chéo AC là phân giác của góc A.", "a": 0, "h": "Xem lại Định lí 2c.", "ex": "Hình bình hành có một đường chéo là phân giác của một góc là hình thoi."}], "ex": "Muốn kết luận hình thoi, hình vuông, trước hết phải chắc chắn tứ giác là hình bình hành (hoặc hình chữ nhật, hình thoi), rồi mới dùng dấu hiệu."}, {"type": "order", "tag": "Chứng minh", "title": "Sắp xếp lời giải", "q": "Cho tam giác ABC cân tại A, M là trung điểm của BC. Trên tia đối của tia MA lấy điểm D sao cho MD = MA. Dùng nút ▲ ▼ sắp xếp các bước chứng minh ABDC là hình thoi.", "items": ["Tứ giác ABDC có M là trung điểm của BC và của AD.", "Nên ABDC là hình bình hành (hai đường chéo cắt nhau tại trung điểm mỗi đường).", "Lại có AB = AC (tam giác ABC cân tại A), tức là hai cạnh kề bằng nhau.", "Vậy ABDC là hình thoi (hình bình hành có hai cạnh kề bằng nhau)."], "ex": "Sơ đồ: chứng minh hình bình hành trước, rồi dùng dấu hiệu nhận biết hình thoi."}]}, {"label": "Chặng 4", "name": "Xưởng STEM đêm hội", "intro": "Kỹ sư nhí chuẩn bị đêm hội: làm diều hình thoi, kéo cổng xếp mắt cáo và thiết kế hộp quà “Trick or Treat”.", "know": "<p><b>Ứng dụng:</b> hai thanh tre buộc cắt nhau tại trung điểm và vuông góc cho khung diều hình thoi (dấu hiệu qua đường chéo). Cổng xếp gồm các mắt hình thoi: khi kéo, góc thay đổi nhưng cạnh không đổi, hai đường chéo luôn vuông góc. Tấm bìa hình vuông cắt bốn góc gấp được hộp có đáy hình vuông.</p>", "acts": [{"type": "kite", "tag": "STEM – Mô phỏng", "title": "Xưởng diều: buộc hai thanh tre", "q": "Điều chỉnh điểm buộc, góc và độ dài thanh tre để được khung diều đúng yêu cầu.", "missions": [{"q": "Làm khung diều <b>hình thoi</b>.", "want": "Hình thoi", "ok": "Khung hình thoi! Hai thanh cắt nhau tại trung điểm mỗi thanh (hình bình hành) và vuông góc."}, {"q": "Làm khung diều <b>hình vuông</b> để dán giấy hình vuông có sẵn.", "want": "Hình vuông", "ok": "Khung hình vuông! Hai thanh còn dài bằng nhau."}], "ex": "Hai đường chéo cắt nhau tại trung điểm mỗi đường → hình bình hành; thêm vuông góc → hình thoi; thêm bằng nhau → hình vuông."}, {"type": "gate", "tag": "STEM – Mô phỏng", "title": "Cổng xếp mắt cáo", "q": "Cổng sân khấu đêm hội gồm 5 mắt hình thoi, mỗi cạnh 50 cm. Kéo cổng chắn vừa lối đi rộng 4 m.", "n": 5, "side": 50, "target": 400, "q2": "Khi kéo dài hay thu ngắn cổng, mỗi mắt cáo luôn có tính chất nào?", "o": ["Vẫn là hình thoi: hai đường chéo vuông góc và cắt nhau tại trung điểm", "Trở thành hình vuông", "Hai đường chéo luôn bằng nhau", "Không còn là hình bình hành"], "ex": "Các thanh có độ dài không đổi nên mỗi mắt luôn là hình thoi; chỉ góc thay đổi. Hai đường chéo vuông góc nên cổng co giãn đều theo hai phương."}, {"type": "box", "tag": "STEM – Thiết kế", "title": "Hộp quà “Trick or Treat”", "q": "Từ tấm bìa hình vuông cạnh 30 cm, cắt bốn hình vuông nhỏ cạnh h ở bốn góc rồi gấp thành hộp không nắp. Tìm h để hộp đựng được nhiều kẹo nhất.", "S": 30, "best": 2000, "o": ["Hình vuông, vì đáy là hình chữ nhật có hai cạnh kề cùng bằng 30 − 2h", "Hình thoi không vuông", "Hình chữ nhật không vuông", "Hình bình hành"], "ex": "Đáy có bốn góc vuông và các cạnh cùng bằng 30 − 2h nên là hình vuông. Thể tích (30 − 2h)² · h lớn nhất khi h = 5 cm: 20² · 5 = 2 000 cm³."}]}, {"label": "Về đích", "name": "Thử thách & chứng nhận", "intro": "8 câu hỏi củng cố. Đúng từ 6 câu để nhận giấy chứng nhận.", "quizTitle": "Thử thách Kỹ sư nhí Thoi – Vuông", "certTitle": "Kỹ sư nhí Thoi – Vuông", "passN": 6, "acts": [{}], "quiz": [{"q": "Hình thoi là tứ giác có:", "o": ["Bốn cạnh bằng nhau", "Bốn góc bằng nhau", "Hai đường chéo bằng nhau", "Hai cạnh đối song song"], "a": 0, "ex": "Định nghĩa hình thoi."}, {"q": "Trong hình thoi, hai đường chéo:", "o": ["Vuông góc với nhau và là phân giác các góc", "Luôn bằng nhau", "Song song với nhau", "Không cắt nhau"], "a": 0, "ex": "Định lí 1."}, {"q": "Hình bình hành ABCD có AB = BC là:", "o": ["Hình thoi", "Hình chữ nhật", "Hình thang cân", "Tứ giác thường"], "a": 0, "ex": "Hình bình hành có hai cạnh kề bằng nhau là hình thoi."}, {"q": "Hình chữ nhật có hai đường chéo vuông góc là:", "o": ["Hình vuông", "Hình thang", "Hình bình hành không phải hình thoi", "Không xác định được"], "a": 0, "ex": "Định lí 4b."}, {"q": "Hình thoi ABCD có góc A = 70°. Góc B bằng:", "o": ["110°", "70°", "90°", "140°"], "a": 0, "ex": "Hình thoi là hình bình hành nên hai góc kề một cạnh bù nhau: 180° − 70° = 110°."}, {"q": "Hình thoi ABCD có hai đường chéo cắt nhau tại O, OB = 4 cm. Độ dài BD là:", "o": ["8 cm", "4 cm", "2 cm", "16 cm"], "a": 0, "ex": "O là trung điểm của BD nên BD = 2 · OB = 8 cm."}, {"q": "Một hình vuông có một đường chéo dài 10 cm. Đường chéo còn lại dài:", "o": ["10 cm", "5 cm", "20 cm", "Không tính được"], "a": 0, "ex": "Hai đường chéo của hình vuông bằng nhau."}, {"q": "Khẳng định nào SAI?", "o": ["Tứ giác có hai đường chéo vuông góc là hình thoi", "Hình thoi có một góc vuông là hình vuông", "Hình vuông là hình thoi", "Hình thoi là hình bình hành"], "a": 0, "ex": "Tứ giác phải là hình bình hành thì hai đường chéo vuông góc mới cho hình thoi."}]}], "guide": "<h3>Hướng dẫn cho thầy cô</h3>\n<p><b>Bài học:</b> Toán 8 tập một (bộ Kết nối tri thức với cuộc sống) – Chương III, Bài 14. Hình thoi và hình vuông.</p>\n<p><b>Yêu cầu cần đạt:</b> mô tả khái niệm hình thoi và hình vuông; giải thích các tính chất của hình thoi và hình vuông; nhận biết dấu hiệu để một hình là hình thoi, hình vuông; vận dụng vào giải quyết vấn đề thực tiễn (giáo dục STEM).</p>\n<ul><li><b>Chặng 1 (8 phút):</b> mô phỏng tình huống mở đầu (gấp giấy, cắt, mở ra) – hình thành khái niệm hình thoi, hình vuông.</li>\n<li><b>Chặng 2 (10 phút):</b> phòng thí nghiệm thay cho HĐ1, HĐ2 – học sinh tự phát hiện Định lí 1, Định lí 3; kiểm tra khẳng định đúng/sai.</li>\n<li><b>Chặng 3 (12 phút):</b> 7 hình nhận biết (tương tự Ví dụ 2, 3, Luyện tập 1, 2, bài 3.29), có trường hợp “chưa đủ để kết luận”; sắp xếp lời chứng minh.</li>\n<li><b>Chặng 4 – STEM (15 phút):</b> xưởng diều hình thoi, cổng xếp mắt cáo, hộp quà “Trick or Treat” – dùng cho tiết luyện tập, làm căn cứ để các nhóm thiết kế sản phẩm thật (diều, hộp quà) trong hoạt động STEM.</li>\n<li><b>Về đích (5 phút):</b> 8 câu củng cố, đạt từ 6 câu nhận giấy chứng nhận.</li></ul>\n<p><b>Thông tin học liệu:</b> Trường THCS Võ Thị Sáu, phường An Biên, Hải Phòng – năm học 2026 – 2027. Tác giả: Ngô Thị Phương – Tổ trưởng Tổ Khoa học tự nhiên.</p>\n<p>Hình vẽ, mô phỏng tạo bằng mã nguồn; không dùng hình ảnh của SGK. Câu hỏi, tình huống do tác giả soạn theo nội dung SGK. Mã nguồn có sử dụng công cụ AI (Claude) hỗ trợ lập trình; nội dung đã được tác giả kiểm tra. App không thu thập thông tin cá nhân; tiến độ chỉ lưu trên máy học sinh.</p>"};
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+let toastT; function toast(m){ const t=$('toast'); t.textContent=m; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2400); }
+const KEY = APP.key; let done = {};
+try { done = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch(e){} };
+const ALL = []; APP.stations.forEach((s,si) => (s.acts||[]).forEach((a,ai) => ALL.push(si+'.'+ai)));
+function complete(id){ if (!done[id]){ done[id] = 1; save(); toast('Hoàn thành! +1 dấu trên hành trình'); } refresh(); }
+function refresh(){
+  const n = ALL.filter(k => done[k]).length; $('progTxt').textContent = `${n}/${ALL.length}`;
+  $('ring').style.strokeDashoffset = 144.5 * (1 - n/ALL.length);
+  $('stamps').innerHTML = APP.stations.map((s,i) => `<i class="${(s.acts||[]).every((_,ai)=>done[i+'.'+ai])?'on':''}" title="${esc(s.name)}">${i+1}</i>`).join('');
+  document.querySelectorAll('#tabs button[data-i]').forEach(b => { if (b.dataset.i==='g') return; const i = +b.dataset.i, s = APP.stations[i]; b.classList.toggle('done', !!s.acts && s.acts.every((_,ai)=>done[i+'.'+ai])); });
+  document.querySelectorAll('.act[data-id]').forEach(a => a.classList.toggle('done', !!done[a.dataset.id]));
+}
+let cur = 0;
+function tabs(){
+  $('tabs').innerHTML = APP.stations.map((s,i) => `<button role="tab" data-i="${i}" aria-selected="${i===cur}"><small>${esc(s.label)}</small><span>${esc(s.name)}</span></button>`).join('') + `<button role="tab" data-i="g" aria-selected="${cur==='g'}"><small>Thầy cô</small><span>Hướng dẫn</span></button>`;
+  document.querySelectorAll('#tabs button').forEach(b => b.onclick = () => { cur = b.dataset.i==='g' ? 'g' : +b.dataset.i; tabs(); show(); });
+  refresh();
+}
+function show(){
+  const m = $('main');
+  if (cur === 'g'){ m.innerHTML = `<section class="act guide">${APP.guide}<div class="row"><button class="btn" id="reset">Xóa tiến độ trên máy này</button></div></section>`; $('reset').onclick = () => { done = {}; save(); refresh(); toast('Đã xóa tiến độ.'); }; return; }
+  const s = APP.stations[cur];
+  let h = `<section class="st"><div class="sthead"><p class="tag kick" style="color:var(--accent2)">${esc(s.label)}</p><h2>${esc(s.name)}</h2><p>${s.intro}</p></div>`;
+  if (s.know) h += `<div class="know">${s.know}</div>`;
+  if (s.quiz) h += quizHtml(s);
+  else h += s.acts.map((a,ai) => `<article class="act" data-id="${cur}.${ai}"><p class="tag">${esc(a.tag||'Hoạt động')}</p><h3>${esc(a.title)}</h3><p class="q">${a.q}</p><div class="body"></div></article>`).join('');
+  m.innerHTML = h + '</section>';
+  if (s.quiz) bindQuiz(s); else s.acts.forEach((a,ai) => render(m.querySelector(`.act[data-id="${cur}.${ai}"] .body`), a, `${cur}.${ai}`));
+  refresh(); window.scrollTo({top: $('tabs').offsetTop - 10, behavior: 'smooth'});
+}
+/* ---------- CÁC DẠNG HOẠT ĐỘNG ---------- */
+function fbSet(el, ok, msg){ el.textContent = msg; el.className = 'fb ' + (ok ? 'ok' : 'no'); }
+function render(box, a, id){ const f = ({mcq:rMcq, order:rOrder, match:rMatch, classify:rClassify, guess:rGuess})[a.type] || (window.CUSTOM||{})[a.type]; f(box, a, id); }
+function rMcq(box, a, id){
+  const ord = shuffle(a.o.map((_,i)=>i));
+  box.innerHTML = `<div class="opts">${ord.map(i=>`<button class="opt" data-i="${i}">${a.o[i]}</button>`).join('')}</div><p class="ex exb" hidden></p>`;
+  box.querySelectorAll('.opt').forEach(b => b.onclick = () => { const ok = +b.dataset.i === a.a; b.classList.add(ok?'ok':'no');
+    const ex = box.querySelector('.exb'); ex.hidden = false; ex.innerHTML = (ok ? '✓ Đúng rồi. ' : '✗ Chưa đúng, em chọn lại nhé. ') + (ok ? a.ex : (a.hint||''));
+    if (ok){ box.querySelectorAll('.opt').forEach(x => x.disabled = true); complete(id); } else b.disabled = true; });
+}
+function rOrder(box, a, id){
+  let ord = shuffle(a.items.map((_,i)=>i)); if (ord.every((v,i)=>v===i)) ord.reverse();
+  const draw = () => { box.innerHTML = `<ol class="ord">${ord.map((k,i)=>`<li data-k="${k}"><span>${a.items[k]}</span><span class="mv"><button aria-label="Lên" data-u="${i}">▲</button><button aria-label="Xuống" data-d="${i}">▼</button></span></li>`).join('')}</ol><div class="row"><button class="btn pri">Kiểm tra</button><span class="fb"></span></div><p class="ex exb" hidden></p>`;
+    box.querySelectorAll('[data-u]').forEach(b => b.onclick = () => { const i=+b.dataset.u; if (i>0){ [ord[i-1],ord[i]]=[ord[i],ord[i-1]]; draw(); } });
+    box.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { const i=+b.dataset.d; if (i<ord.length-1){ [ord[i+1],ord[i]]=[ord[i],ord[i+1]]; draw(); } });
+    box.querySelector('.btn.pri').onclick = () => { const r = ord.filter((v,i)=>v===i).length; box.querySelectorAll('.ord li').forEach((li,i)=>li.classList.add(ord[i]===i?'ok':'no'));
+      const ok = r === ord.length; fbSet(box.querySelector('.fb'), ok, ok ? 'Chính xác!' : `Đúng vị trí ${r}/${ord.length}. Ô viền đỏ chưa đúng.`); if (ok){ const ex = box.querySelector('.exb'); ex.hidden=false; ex.innerHTML = a.ex; complete(id); } }; };
+  draw();
+}
+function rMatch(box, a, id){
+  const L = a.pairs.map(p=>p[0]), R = shuffle(a.pairs.map(p=>p[1])), pick = {}; let sel = null, checked = false;
+  const draw = () => {
+    box.innerHTML = `<div class="chips">${R.map(r => { const used = Object.values(pick).includes(r); return `<button class="chip ${used?'used':''}" data-r="${esc(r)}" aria-pressed="${sel===r}">${r}</button>`; }).join('')}</div>
+      <div class="pairs">${L.map((l,i) => { const v = pick[i], c = checked && v ? (v===a.pairs[i][1]?'ok':'no') : ''; return `<button class="slot ${c}" data-l="${i}"><b>${l}</b><span>${v ? '→ '+v : 'chạm để đặt'}</span></button>`; }).join('')}</div>
+      <div class="row"><button class="btn pri">Kiểm tra</button><span class="fb"></span></div><p class="ex exb" hidden></p>`;
+    box.querySelectorAll('.chip').forEach(b => b.onclick = () => { const r = b.dataset.r; const k = Object.keys(pick).find(k=>pick[k]===r); if (k!==undefined) delete pick[k]; sel = sel===r ? null : r; checked = false; draw(); });
+    box.querySelectorAll('.slot').forEach(b => b.onclick = () => { const i = +b.dataset.l; if (!sel){ if (pick[i]){ delete pick[i]; checked=false; draw(); } else toast('Chọn một thẻ ở trên trước nhé.'); return; } pick[i] = sel; sel = null; checked = false; draw(); });
+    box.querySelector('.btn.pri').onclick = () => { if (Object.keys(pick).length < L.length){ fbSet(box.querySelector('.fb'), false, `Còn ${L.length-Object.keys(pick).length} ô chưa ghép.`); return; }
+      checked = true; const r = L.filter((_,i)=>pick[i]===a.pairs[i][1]).length; draw(); const ok = r===L.length; fbSet(box.querySelector('.fb'), ok, ok ? 'Ghép đúng hết!' : `Đúng ${r}/${L.length}. Chạm ô đỏ để gỡ ra, ghép lại.`); if (ok){ const ex = box.querySelector('.exb'); ex.hidden=false; ex.innerHTML=a.ex; complete(id); } };
+  };
+  draw();
+}
+function rClassify(box, a, id){
+  const items = shuffle(a.items.map((it,i)=>i)), pick = {}; let sel = null, checked = false;
+  const draw = () => {
+    const left = items.filter(i => pick[i]===undefined);
+    box.innerHTML = `<div class="chips">${left.map(i=>`<button class="chip" data-i="${i}" aria-pressed="${sel===i}">${a.items[i][0]}</button>`).join('') || '<span class="ex" style="border:0;padding:0">Đã xếp hết. Bấm Kiểm tra.</span>'}</div>
+      <div class="bins">${a.bins.map((b,bi)=>`<div class="bin" data-b="${bi}" role="button" tabindex="0"><h4>${b}</h4><div class="in">${items.filter(i=>pick[i]===bi).map(i=>`<span data-un="${i}" class="${checked?(a.items[i][1]===bi?'ok':'no'):''}">${a.items[i][0]}</span>`).join('')}</div></div>`).join('')}</div>
+      <div class="row"><button class="btn pri">Kiểm tra</button><span class="fb"></span></div><p class="ex exb" hidden></p>`;
+    box.querySelectorAll('.chip').forEach(b => b.onclick = () => { const i = +b.dataset.i; sel = sel===i ? null : i; draw(); });
+    box.querySelectorAll('.bin').forEach(b => { const put = e => { if (sel===null && e && e.target.dataset.un !== undefined){ delete pick[+e.target.dataset.un]; checked=false; draw(); return; } if (sel===null){ toast('Chọn một thẻ trước nhé.'); return; } pick[sel] = +b.dataset.b; sel = null; checked = false; draw(); };
+      b.onclick = put; b.onkeydown = e => { if (e.key==='Enter'||e.key===' '){ e.preventDefault(); put(); } }; });
+    box.querySelector('.btn.pri').onclick = () => { const n = a.items.length; if (Object.keys(pick).length < n){ fbSet(box.querySelector('.fb'), false, `Còn ${n-Object.keys(pick).length} thẻ chưa xếp.`); return; }
+      checked = true; const r = a.items.filter((it,i)=>pick[i]===it[1]).length; draw(); const ok = r===n; fbSet(box.querySelector('.fb'), ok, ok ? 'Xếp đúng hết!' : `Đúng ${r}/${n}. Chạm vào thẻ đỏ để lấy ra, xếp lại.`); if (ok){ const ex = box.querySelector('.exb'); ex.hidden=false; ex.innerHTML=a.ex; complete(id); } };
+  };
+  draw();
+}
+function rGuess(box, a, id){
+  const mid = Math.round((a.min + a.max)/2 / a.step) * a.step;
+  box.innerHTML = `<div class="guess"><div class="row"><span class="gval">${fmt(mid)}</span><span>${a.unit}</span></div><input type="range" min="${a.min}" max="${a.max}" step="${a.step}" value="${mid}" aria-label="Dự đoán">${a.pct?`<div class="dots">${'<i></i>'.repeat(100)}</div>`:''}<div class="legend">${a.legend||''}</div><div class="row"><button class="btn pri">Chốt dự đoán</button><span class="fb"></span></div><p class="ex exb" hidden></p></div>`;
+  const inp = box.querySelector('input'), val = box.querySelector('.gval'), dots = box.querySelectorAll('.dots i');
+  const paint = (v, real) => dots.forEach((d,i) => { d.className = real!==undefined ? (i < Math.round(real) ? 'a' : '') : (i < Math.round(a.pct ? v : v/a.max*100) ? 'g' : ''); });
+  const upd = () => { val.textContent = fmt(+inp.value); paint(+inp.value); }; inp.oninput = upd; upd();
+  box.querySelector('.btn.pri').onclick = () => { const v = +inp.value, ok = Math.abs(v - a.ans) <= a.tol; if (a.pct) paint(v, a.ans);
+    fbSet(box.querySelector('.fb'), ok, ok ? `Rất sát! Đáp án: ${fmt(a.ans)} ${a.unit}.` : (v < a.ans ? 'Còn thấp hơn thực tế – thử tăng lên.' : 'Cao hơn thực tế – thử giảm xuống.'));
+    if (ok){ const ex = box.querySelector('.exb'); ex.hidden=false; ex.innerHTML = a.ex; complete(id); } };
+}
+const fmt = v => Number(v).toLocaleString('vi-VN', {maximumFractionDigits: 2});
+/* ===== CUSTOM: HÌNH THOI VÀ HÌNH VUÔNG ===== */
+const DG = Math.PI / 180, r1 = v => Math.round(v * 10) / 10, cm = v => String(r1(v)).replace('.', ',');
+const L = (P, Q, cls = 'ed') => `<line x1="${r1(P[0])}" y1="${r1(P[1])}" x2="${r1(Q[0])}" y2="${r1(Q[1])}" class="${cls}"/>`;
+const T = (P, s, cls = 'lb', an = 'middle') => `<text x="${r1(P[0])}" y="${r1(P[1])}" class="${cls}" text-anchor="${an}" dominant-baseline="middle">${s}</text>`;
+const D = (P, r = 3.5) => `<circle cx="${r1(P[0])}" cy="${r1(P[1])}" r="${r}" class="dt"/>`;
+const poly = (Ps, cls = 'sh') => `<polygon points="${Ps.map(p => r1(p[0]) + ',' + r1(p[1])).join(' ')}" class="${cls}"/>`;
+const tick = (P, Q, n = 1) => { const mx = (P[0] + Q[0]) / 2, my = (P[1] + Q[1]) / 2, dx = Q[0] - P[0], dy = Q[1] - P[1], l = Math.hypot(dx, dy), ux = dx / l, uy = dy / l, nx = -uy, ny = ux; let s = '';
+  for (let i = 0; i < n; i++){ const o = (i - (n - 1) / 2) * 5; s += `<line x1="${r1(mx + ux * o - nx * 7)}" y1="${r1(my + uy * o - ny * 7)}" x2="${r1(mx + ux * o + nx * 7)}" y2="${r1(my + uy * o + ny * 7)}" class="tk"/>`; } return s; };
+const rt = (V, P, Q, s = 12) => { const u = [(P[0] - V[0]), (P[1] - V[1])], v = [(Q[0] - V[0]), (Q[1] - V[1])], lu = Math.hypot(...u), lv = Math.hypot(...v), a = [u[0] / lu * s, u[1] / lu * s], b = [v[0] / lv * s, v[1] / lv * s];
+  return `<path d="M${r1(V[0] + a[0])} ${r1(V[1] + a[1])} L${r1(V[0] + a[0] + b[0])} ${r1(V[1] + a[1] + b[1])} L${r1(V[0] + b[0])} ${r1(V[1] + b[1])}" class="rta"/>`; };
+const arcM = (V, P, Q, r = 20, n = 1) => { let a1 = Math.atan2(P[1] - V[1], P[0] - V[0]), a2 = Math.atan2(Q[1] - V[1], Q[0] - V[0]); let d = a2 - a1; while (d > Math.PI) d -= 2 * Math.PI; while (d < -Math.PI) d += 2 * Math.PI; let s = '';
+  for (let i = 0; i < n; i++){ const rr = r + i * 4, p0 = [V[0] + rr * Math.cos(a1), V[1] + rr * Math.sin(a1)], p1 = [V[0] + rr * Math.cos(a1 + d), V[1] + rr * Math.sin(a1 + d)]; s += `<path d="M${r1(p0[0])} ${r1(p0[1])} A${rr} ${rr} 0 0 ${d > 0 ? 1 : 0} ${r1(p1[0])} ${r1(p1[1])}" class="am"/>`; } return s; };
+const svgW = (w, h, inner, lab) => `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${lab}"><rect width="${w}" height="${h}" class="bg"/>${inner}</svg>`;
+
+window.CUSTOM = {
+ /* 1. Gấp giấy – cắt – mở ra */
+ fold(box, a, id){
+  let oa = 5, ob = 3, open = false; const got = new Set();
+  box.innerHTML = `<div class="tl"><div class="fig" id="fdF"></div><div><div class="ctl"><label for="fdA">OA</label><input type="range" id="fdA" min="2" max="6" step="0.5" value="${oa}"><output id="fdAo"></output></div>
+   <div class="ctl"><label for="fdB">OB</label><input type="range" id="fdB" min="2" max="6" step="0.5" value="${ob}"><output id="fdBo"></output></div>
+   <div class="row"><button class="btn pri" id="fdC">✂ Cắt và mở tờ giấy</button><button class="btn" id="fdR">Gấp lại</button></div>
+   <p class="fb" id="fdM" aria-live="polite"></p><ul class="miss">${a.missions.map((m, i) => `<li data-m="${i}">${m}</li>`).join('')}</ul></div></div><p class="ex exb" hidden></p>`;
+  const k = 26, draw = () => {
+   const W = 520, H = 330; let s = '';
+   if (!open){ const O = [150, 280], A = [O[0], O[1] - oa * k * 1.6], B = [O[0] + ob * k * 1.6, O[1]];
+     s += `<path d="M${O[0]} ${O[1]} V${O[1] - 6.6 * k * 1.6} H${O[0] + 6.6 * k * 1.6} V${O[1]} Z" class="paper"/><path d="M${O[0]} ${O[1]} V${O[1] - 6.6 * k * 1.6}" class="fold"/><path d="M${O[0]} ${O[1]} H${O[0] + 6.6 * k * 1.6}" class="fold"/>`;
+     s += poly([O, A, B], 'cutp') + L(A, B, 'cut') + rt(O, A, B, 14) + D(O) + D(A) + D(B) + T([O[0] - 14, O[1] + 14], 'O') + T([A[0] - 16, A[1]], 'A') + T([B[0], B[1] + 18], 'B');
+     s += T([O[0] - 30, (O[1] + A[1]) / 2], cm(oa) + ' cm', 'vl', 'end') + T([(O[0] + B[0]) / 2, O[1] + 34], cm(ob) + ' cm', 'vl') + T([(A[0] + B[0]) / 2 + 26, (A[1] + B[1]) / 2 - 8], '✂ cắt theo AB', 'hint2', 'start');
+     s += T([380, 40], 'Tờ giấy gấp làm tư', 'sm'); }
+   else { const C = [260, 165], f = 2 * k > 0 ? Math.min(140 / ob, 140 / oa, 30) : 30, P = [[C[0], C[1] - oa * f], [C[0] + ob * f, C[1]], [C[0], C[1] + oa * f], [C[0] - ob * f, C[1]]], sq = oa === ob;
+     s += poly(P, sq ? 'sh sq' : 'sh') + L(P[0], P[2], 'dg') + L(P[1], P[3], 'dg') + rt(C, P[0], P[1], 12);
+     for (let i = 0; i < 4; i++) s += tick(P[i], P[(i + 1) % 4], 1);
+     if (sq) for (let i = 0; i < 4; i++) s += rt(P[i], P[(i + 1) % 4], P[(i + 3) % 4], 12);
+     s += D(C) + T([C[0] + 12, C[1] + 14], 'O', 'lb', 'start') + T([C[0] + 8, C[1] - oa * f / 2], cm(oa), 'sm', 'start') + T([C[0] + ob * f / 2, C[1] - 10], cm(ob), 'sm');
+     s += T([260, 20], sq ? 'Hình vuông!' : 'Hình thoi!', 'big'); }
+   box.querySelector('#fdF').innerHTML = svgW(W, H, s, 'Mô phỏng gấp giấy, cắt và mở ra');
+   box.querySelector('#fdAo').textContent = cm(oa) + ' cm'; box.querySelector('#fdBo').textContent = cm(ob) + ' cm';
+  };
+  const M = box.querySelector('#fdM');
+  box.querySelector('#fdA').oninput = e => { oa = +e.target.value; open = false; M.textContent = ''; draw(); };
+  box.querySelector('#fdB').oninput = e => { ob = +e.target.value; open = false; M.textContent = ''; draw(); };
+  box.querySelector('#fdR').onclick = () => { open = false; draw(); };
+  box.querySelector('#fdC').onclick = () => { open = true; draw(); const side = Math.hypot(oa, ob), sq = oa === ob;
+   M.className = 'fb ok'; M.textContent = `Bốn cạnh đều dài ≈ ${cm(side)} cm, hai đường chéo dài ${cm(2 * oa)} cm và ${cm(2 * ob)} cm, vuông góc tại O. ` + (sq ? 'OA = OB nên hai đường chéo bằng nhau → hình vuông!' : '→ Tứ giác có bốn cạnh bằng nhau: hình thoi.');
+   got.add(sq ? 1 : 0); box.querySelectorAll('.miss li').forEach(li => li.classList.toggle('on', got.has(+li.dataset.m)));
+   if (got.size === 2 && !box.dataset.done){ box.dataset.done = 1; const ex = box.querySelector('.exb'); ex.hidden = false; ex.innerHTML = a.ex; complete(id); } };
+  draw();
+ },
+
+ /* 2. Phòng thí nghiệm hình thoi */
+ lab(box, a, id){
+  let al = 60, sqDone = false, propDone = false; const seen = new Set();
+  box.innerHTML = `<div class="tl"><div class="fig" id="lbF"></div><div><div class="ctl"><label for="lbA">Góc A</label><button class="btn sm" data-d="-1" aria-label="Giảm 1 độ">−1°</button><input type="range" id="lbA" min="40" max="140" step="1" value="${al}"><button class="btn sm" data-d="1" aria-label="Tăng 1 độ">+1°</button><output id="lbO"></output></div>
+   <table class="mt"><tbody id="lbT"></tbody></table><p class="fb" id="lbM"></p></div></div><div id="lbQ"></div><p class="ex exb" hidden></p>`;
+  const draw = () => {
+   seen.add(al); const s = 5, k = 30, p = s * Math.cos(al / 2 * DG), q = s * Math.sin(al / 2 * DG), C0 = [250, 170];
+   const A = [C0[0], C0[1] - p * k], B = [C0[0] - q * k, C0[1]], C = [C0[0], C0[1] + p * k], Dd = [C0[0] + q * k, C0[1]], sq = al === 90;
+   let g = poly([A, B, C, Dd], sq ? 'sh sq' : 'sh') + L(A, C, 'dg') + L(B, Dd, 'dg') + rt(C0, A, Dd, 11) + arcM(A, B, C0, 22) + arcM(A, C0, Dd, 26);
+   [[A, B], [B, C], [C, Dd], [Dd, A]].forEach(([P, Q]) => g += tick(P, Q, 1));
+   g += [[A, 'A', 0, -16], [B, 'B', -16, 0], [C, 'C', 0, 18], [Dd, 'D', 16, 0], [C0, 'O', 12, 14]].map(([P, n, dx, dy]) => D(P) + T([P[0] + dx, P[1] + dy], n)).join('');
+   box.querySelector('#lbF').innerHTML = svgW(500, 340, g, 'Hình thoi ABCD với hai đường chéo');
+   box.querySelector('#lbO').textContent = al + '°';
+   box.querySelector('#lbT').innerHTML = `<tr><th>AB = BC = CD = DA</th><td>${cm(s)} cm</td></tr><tr><th>AC</th><td>${cm(2 * p)} cm</td></tr><tr><th>BD</th><td>${cm(2 * q)} cm</td></tr><tr><th>∠AOD</th><td>90°</td></tr><tr><th>∠BAO ; ∠OAD</th><td>${cm(al / 2)}° ; ${cm(al / 2)}°</td></tr>`;
+   const M = box.querySelector('#lbM');
+   if (sq){ M.className = 'fb ok'; M.textContent = 'Góc A = 90°: AC = BD – hình thoi trở thành hình vuông!'; if (!sqDone){ sqDone = true; toast('Hình vuông!'); fin(); } }
+   else { M.className = 'fb'; M.textContent = seen.size < 3 ? `Kéo thay đổi góc A và quan sát bảng số đo (đã thử ${seen.size}/3 góc).` : (propDone ? 'Thử chỉnh góc A để hình thoi trở thành hình vuông.' : 'Chọn các tính chất luôn đúng ở bên dưới.'); }
+   if (seen.size >= 3) ask();
+  };
+  const fin = () => { if (sqDone && propDone && !box.dataset.done){ box.dataset.done = 1; const ex = box.querySelector('.exb'); ex.hidden = false; ex.innerHTML = a.ex; complete(id); } };
+  const ask = () => { const Q = box.querySelector('#lbQ'); if (Q.dataset.on) return; Q.dataset.on = 1; const sel = new Set();
+   Q.innerHTML = `<p class="q">Với <b>mọi</b> góc A, tính chất nào của hình thoi luôn đúng? (chọn tất cả)</p><div class="chips">${a.props.map((p, i) => `<button class="chip" data-i="${i}" aria-pressed="false">${p[0]}</button>`).join('')}</div><div class="row"><button class="btn pri">Kiểm tra</button><span class="fb"></span></div>`;
+   Q.querySelectorAll('.chip').forEach(b => b.onclick = () => { const i = +b.dataset.i; sel.has(i) ? sel.delete(i) : sel.add(i); b.setAttribute('aria-pressed', sel.has(i)); });
+   Q.querySelector('.btn.pri').onclick = () => { const F = Q.querySelector('.fb'), ok = a.props.every((p, i) => !!p[1] === sel.has(i));
+     if (!ok){ const bad = a.props.findIndex((p, i) => !!p[1] !== sel.has(i)); fbSet(F, false, a.props[bad][1] ? 'Còn thiếu tính chất đúng – xem lại bảng số đo.' : `“${a.props[bad][0]}” không luôn đúng – thử nhiều góc A khác nhau.`); return; }
+     fbSet(F, true, 'Chính xác! Đó là Định lí 1. Giờ chỉnh góc A để được hình vuông.'); propDone = true; fin(); draw(); }; };
+  box.querySelector('#lbA').oninput = e => { al = +e.target.value; draw(); };
+  box.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { al = Math.max(40, Math.min(140, al + +b.dataset.d)); box.querySelector('#lbA').value = al; draw(); });
+  draw();
+ },
+
+ /* 3. Nhận diện hình */
+ detect(box, a, id){
+  let fi = 0, wrong = 0;
+  const O = ['Hình thoi', 'Hình vuông', 'Chưa đủ để kết luận'];
+  const run = () => {
+   const F = a.figs[fi];
+   box.innerHTML = `<p class="tag">Hình ${fi + 1}/${a.figs.length}</p><div class="tl"><div class="fig">${svgW(320, 230, FIGS8[F.f](), 'Hình ' + (fi + 1))}</div><div><p class="q">${F.q}</p>
+    <div class="opts">${O.map((o, i) => `<button class="opt" data-i="${i}">${o}</button>`).join('')}</div><p class="ex exb" hidden></p></div></div>`;
+   box.querySelectorAll('.opt').forEach(b => b.onclick = () => { const i = +b.dataset.i, ok = i === F.a, ex = box.querySelector('.exb'); b.classList.add(ok ? 'ok' : 'no'); ex.hidden = false;
+     if (!ok){ wrong++; b.disabled = true; ex.innerHTML = '✗ ' + F.h; return; }
+     box.querySelectorAll('.opt').forEach(x => x.disabled = true); ex.innerHTML = '✓ ' + F.ex;
+     ex.insertAdjacentHTML('afterend', `<div class="row"><button class="btn pri" id="dtN">${fi < a.figs.length - 1 ? 'Hình tiếp theo →' : 'Hoàn thành'}</button></div>`);
+     box.querySelector('#dtN').onclick = () => { if (fi < a.figs.length - 1){ fi++; run(); } else { box.innerHTML = `<p class="fb ok">Nhận diện xong ${a.figs.length} hình!</p><p class="ex">${a.ex}</p>`; complete(id); } }; });
+  };
+  run();
+ },
+
+ /* 4. Xưởng diều: ghép hai thanh tre */
+ kite(box, a, id){
+  const st = {t1: .3, t2: .4, th: 70, l2: 160}; let mi = 0;
+  box.innerHTML = `<div class="tl"><div class="fig" id="ktF"></div><div><p class="q" id="ktQ"></p>
+   <div class="ctl"><label for="kt1">Điểm buộc trên thanh 1</label><input type="range" id="kt1" min="0.2" max="0.8" step="0.05" value="${st.t1}"><output></output></div>
+   <div class="ctl"><label for="kt2">Điểm buộc trên thanh 2</label><input type="range" id="kt2" min="0.2" max="0.8" step="0.05" value="${st.t2}"><output></output></div>
+   <div class="ctl"><label for="kt3">Góc giữa hai thanh</label><button class="btn sm" data-d="-1" aria-label="Giảm 1 độ">−1°</button><input type="range" id="kt3" min="40" max="140" step="1" value="${st.th}"><button class="btn sm" data-d="1" aria-label="Tăng 1 độ">+1°</button><output></output></div>
+   <div class="ctl"><label for="kt4">Độ dài thanh 2</label><input type="range" id="kt4" min="30" max="70" step="2" value="${st.l2 / 4}"><output></output></div>
+   <p class="fb" id="ktM" aria-live="polite"></p></div></div><p class="ex exb" hidden></p>`;
+  const L1 = 60, k = 4;
+  const draw = () => {
+   const {t1, t2, th, l2} = st, Oc = [250, 175];
+   const u = [0, -1], v = [Math.sin(th * DG), -Math.cos(th * DG)];
+   const P1 = [Oc[0] + u[0] * t1 * L1 * k, Oc[1] + u[1] * t1 * L1 * k], P3 = [Oc[0] - u[0] * (1 - t1) * L1 * k, Oc[1] - u[1] * (1 - t1) * L1 * k];
+   const P2 = [Oc[0] + v[0] * t2 * l2, Oc[1] + v[1] * t2 * l2], P4 = [Oc[0] - v[0] * (1 - t2) * l2, Oc[1] - v[1] * (1 - t2) * l2];
+   const sides = [[P1, P2], [P2, P3], [P3, P4], [P4, P1]].map(([p, q]) => Math.hypot(p[0] - q[0], p[1] - q[1]) / k);
+   const mid = Math.abs(t1 - .5) < 1e-9 && Math.abs(t2 - .5) < 1e-9, perp = th === 90, eq = Math.abs(l2 / k - L1) < 1e-9;
+   const kind = mid && perp && eq ? 'Hình vuông' : mid && perp ? 'Hình thoi' : mid && eq ? 'Hình chữ nhật' : mid ? 'Hình bình hành' : 'Tứ giác';
+   let g = `<g class="tail"><path d="M${r1(P3[0])} ${r1(P3[1])} q -30 40 0 70 t 0 70" /></g>` + poly([P1, P2, P3, P4], 'kite ' + (kind === 'Hình vuông' ? 'sq' : kind === 'Hình thoi' ? 'rh' : '')) + L(P1, P3, 'stick') + L(P2, P4, 'stick') + D(Oc, 5);
+   if (perp) g += rt(Oc, P1, P2, 12);
+   [[P1, P2], [P2, P3], [P3, P4], [P4, P1]].forEach(([p, q], i) => { const m = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2], c = [(m[0] - Oc[0]), (m[1] - Oc[1])], l = Math.hypot(...c) || 1; g += T([m[0] + c[0] / l * 22, m[1] + c[1] / l * 16], cm(sides[i]), 'sm'); });
+   g += T([250, 22], kind, 'big');
+   box.querySelector('#ktF').innerHTML = svgW(500, 360, g, 'Khung diều ghép từ hai thanh tre');
+   const outs = box.querySelectorAll('.ctl output'); outs[0].textContent = Math.round(t1 * 100) + '%'; outs[1].textContent = Math.round(t2 * 100) + '%'; outs[2].textContent = th + '°'; outs[3].textContent = (l2 / k) + ' cm';
+   const M = a.missions[mi], Mm = box.querySelector('#ktM');
+   box.querySelector('#ktQ').innerHTML = M ? `<b>Nhiệm vụ ${mi + 1}/${a.missions.length}:</b> ${M.q} <small class="muted">(thanh 1 dài 60 cm)</small>` : 'Hoàn thành xưởng diều!';
+   if (M && (M.want === 'Hình thoi' ? mid && perp : kind === M.want)){ Mm.className = 'fb ok'; Mm.textContent = M.ok; mi++; toast('Nhiệm vụ hoàn thành!');
+     if (mi >= a.missions.length){ const ex = box.querySelector('.exb'); ex.hidden = false; ex.innerHTML = a.ex; complete(id); } setTimeout(draw, 0); }
+   else if (M){ Mm.className = 'fb'; Mm.textContent = `Khung hiện tại: ${kind}. ` + (!mid ? 'Hai thanh chưa cắt nhau tại trung điểm mỗi thanh.' : !perp ? 'Hai thanh chưa vuông góc.' : M.want === 'Hình vuông' && !eq ? 'Hai thanh chưa dài bằng nhau.' : ''); }
+  };
+  const bind = (sel, key, f = v => v) => box.querySelector(sel).oninput = e => { st[key] = f(+e.target.value); draw(); };
+  bind('#kt1', 't1'); bind('#kt2', 't2'); bind('#kt3', 'th'); bind('#kt4', 'l2', v => v * 4);
+  box.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { st.th = Math.max(40, Math.min(140, st.th + +b.dataset.d)); box.querySelector('#kt3').value = st.th; draw(); });
+  draw();
+ },
+ /* 5. Cổng xếp mắt cáo – cơ cấu hình thoi */
+ gate(box, a, id){
+  let be = 60, stage = 0; const n = a.n, side = a.side;
+  box.innerHTML = `<div class="fig" id="gtF"></div><div class="ctl"><label for="gtS">Kéo cổng (góc ở đỉnh trên mỗi mắt)</label><button class="btn sm" data-d="-1" aria-label="Giảm 1 độ">−1°</button><input type="range" id="gtS" min="30" max="150" step="1" value="${be}"><button class="btn sm" data-d="1" aria-label="Tăng 1 độ">+1°</button><output></output></div>
+   <p class="fb" id="gtM" aria-live="polite"></p><div id="gtQ"></div><p class="ex exb" hidden></p>`;
+  const draw = () => {
+   const h = 2 * side * Math.cos(be / 2 * DG), w = 2 * side * Math.sin(be / 2 * DG), W = n * w, sc = Math.min(540 / (n * 2 * side), 1.2), y0 = 150, x0 = 30;
+   let g = `<line x1="10" y1="${y0 + side * sc + 18}" x2="610" y2="${y0 + side * sc + 18}" class="gr"/><rect x="${x0 - 14}" y="${y0 - side * sc - 10}" width="12" height="${2 * side * sc + 28}" class="post"/>`;
+   for (let i = 0; i < n; i++){ const cx = x0 + (i + .5) * w * sc, T0 = [cx, y0 - h / 2 * sc], R0 = [cx + w / 2 * sc, y0], B0 = [cx, y0 + h / 2 * sc], L0 = [cx - w / 2 * sc, y0];
+     g += poly([T0, R0, B0, L0], 'mesh') + (i === Math.floor(n / 2) ? L(T0, B0, 'dg') + L(L0, R0, 'dg') + rt([cx, y0], T0, R0, 9) + arcM(T0, L0, R0, 14) : ''); }
+   g += `<rect x="${x0 + W * sc}" y="${y0 - h / 2 * sc - 6}" width="10" height="${h * sc + 12}" class="post"/><line x1="${x0}" y1="${y0 + side * sc + 8}" x2="${x0 + W * sc}" y2="${y0 + side * sc + 8}" class="dim"/>`;
+   g += T([x0 + W * sc / 2, y0 + side * sc + 34], `chiều rộng ≈ ${cm(W / 100)} m`, 'vl') + T([x0 + W * sc + 18, y0], `cao ≈ ${Math.round(h)} cm`, 'sm', 'start');
+   box.querySelector('#gtF').innerHTML = svgW(620, 290, g, 'Cổng xếp gồm các mắt hình thoi');
+   box.querySelector('.ctl output').textContent = be + '°';
+   const M = box.querySelector('#gtM'), ok = Math.abs(W - a.target) <= 3;
+   M.className = 'fb' + (ok ? ' ok' : ''); M.textContent = ok ? `Cổng đã chắn đủ ${cm(a.target / 100)} m! Mỗi mắt vẫn là hình thoi cạnh ${side} cm, hai đường chéo vẫn vuông góc.` : `Kéo để cổng chắn vừa lối đi rộng ${cm(a.target / 100)} m (hiện ${cm(W / 100)} m).`;
+   if (ok && !stage){ stage = 1; ask(); }
+  };
+  const ask = () => { const Q = box.querySelector('#gtQ'), O = a.o;
+   Q.innerHTML = `<p class="q">${a.q2}</p><div class="opts">${O.map((o, i) => `<button class="opt" data-i="${i}">${o}</button>`).join('')}</div>`;
+   Q.querySelectorAll('.opt').forEach(b => b.onclick = () => { const ok = +b.dataset.i === 0; b.classList.add(ok ? 'ok' : 'no'); const ex = box.querySelector('.exb'); ex.hidden = false; ex.innerHTML = ok ? '✓ ' + a.ex : '✗ Kéo thử nhiều lần và quan sát mắt cáo ở giữa (có vẽ đường chéo).';
+     if (ok){ Q.querySelectorAll('.opt').forEach(x => x.disabled = true); complete(id); } else b.disabled = true; }); };
+  box.querySelector('#gtS').oninput = e => { be = +e.target.value; draw(); };
+  box.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { be = Math.max(30, Math.min(150, be + +b.dataset.d)); box.querySelector('#gtS').value = be; draw(); });
+  draw();
+ },
+
+ /* 6. Hộp quà Trick or Treat từ tấm bìa hình vuông */
+ box(box, a, id){
+  let h = 3, best = false, why = false; const S = a.S;
+  box.innerHTML = `<div class="tl"><div class="fig" id="bxF"></div><div><div class="ctl"><label for="bxS">Cạnh hình vuông cắt ở góc (h)</label><input type="range" id="bxS" min="1" max="10" step="0.5" value="${h}"><output></output></div>
+   <table class="mt"><tbody id="bxT"></tbody></table><div id="bxW"></div><div class="row"><span>Thể tích lớn nhất em tìm được:</span><b id="bxB">–</b></div><p class="fb" id="bxM" aria-live="polite"></p></div></div><p class="ex exb" hidden></p>`;
+  let mx = 0;
+  const draw = () => {
+   const b = S - 2 * h, V = b * b * h; if (V > mx) mx = V;
+   const k = 7, o = [20, 20]; let g = `<rect x="${o[0]}" y="${o[1]}" width="${S * k}" height="${S * k}" class="paper"/>`;
+   [[0, 0], [S - h, 0], [0, S - h], [S - h, S - h]].forEach(([x, y]) => g += `<rect x="${o[0] + x * k}" y="${o[1] + y * k}" width="${h * k}" height="${h * k}" class="cutsq"/>`);
+   g += `<rect x="${o[0] + h * k}" y="${o[1] + h * k}" width="${b * k}" height="${b * k}" class="base"/>` + T([o[0] + S * k / 2, o[1] + S * k / 2], 'đáy', 'sm') + T([o[0] + S * k / 2, o[1] + S * k + 16], `tấm bìa hình vuông ${S} cm`, 'sm');
+   // hộp 3D
+   const X = 262, Y = 236, bs = b * 5, hh = h * 5, dx = bs * .45, dy = bs * .28;
+   g += `<polygon points="${X},${Y} ${X + bs},${Y} ${X + bs + dx},${Y - dy} ${X + dx},${Y - dy}" class="boxb"/><polygon points="${X},${Y} ${X + bs},${Y} ${X + bs},${Y - hh} ${X},${Y - hh}" class="boxf"/><polygon points="${X + bs},${Y} ${X + bs + dx},${Y - dy} ${X + bs + dx},${Y - dy - hh} ${X + bs},${Y - hh}" class="boxs"/><polygon points="${X},${Y - hh} ${X + bs},${Y - hh} ${X + bs + dx},${Y - dy - hh} ${X + dx},${Y - dy - hh}" class="boxt"/>`;
+   g += T([X + bs / 2, Y - hh / 2], 'Trick or Treat', 'pk');
+   box.querySelector('#bxF').innerHTML = svgW(500, 260, g, 'Tấm bìa cắt bốn góc gấp thành hộp');
+   box.querySelector('.ctl output').textContent = cm(h) + ' cm';
+   box.querySelector('#bxT').innerHTML = `<tr><th>Cạnh đáy</th><td>${S} − 2 · ${cm(h)} = ${cm(b)} cm</td></tr><tr><th>Chiều cao</th><td>${cm(h)} cm</td></tr><tr><th>Thể tích</th><td>${cm(b)}² · ${cm(h)} = ${Math.round(V).toLocaleString('vi-VN')} cm³</td></tr>`;
+   box.querySelector('#bxB').textContent = Math.round(mx).toLocaleString('vi-VN') + ' cm³';
+   if (!why) ask();
+   const M = box.querySelector('#bxM');
+   if (V >= a.best && !best){ best = true; M.className = 'fb ok'; M.textContent = `Tuyệt! h = ${cm(h)} cm cho hộp ${Math.round(V).toLocaleString('vi-VN')} cm³ – lớn nhất trong các cách cắt.`; fin(); }
+   else if (!best){ M.className = 'fb'; M.textContent = 'Thử nhiều giá trị h để tìm hộp đựng được nhiều kẹo nhất.'; }
+  };
+  const ask = () => { const W = box.querySelector('#bxW'); if (W.dataset.on) return; W.dataset.on = 1;
+   W.innerHTML = `<p class="q">Đáy hộp là hình gì?</p><div class="opts">${a.o.map((o, i) => `<button class="opt" data-i="${i}">${o}</button>`).join('')}</div>`;
+   W.querySelectorAll('.opt').forEach(b => b.onclick = () => { const ok = +b.dataset.i === 0; b.classList.add(ok ? 'ok' : 'no'); if (ok){ why = true; W.querySelectorAll('.opt').forEach(x => x.disabled = true); fin(); } else b.disabled = true; }); };
+  const fin = () => { if (best && why && !box.dataset.done){ box.dataset.done = 1; const ex = box.querySelector('.exb'); ex.hidden = false; ex.innerHTML = a.ex; complete(id); } };
+  box.querySelector('#bxS').oninput = e => { h = +e.target.value; draw(); };
+  draw();
+ }
+};
+
+/* Hình vẽ cho hoạt động nhận diện (tự vẽ bằng mã, kí hiệu đúng như đề) */
+const FIGS8 = {
+ pgAdj(){ const A = [90, 50], B = [250, 50], C = [220, 190], Dd = [60, 190]; // hình bình hành, AB = BC? -> dùng hình thoi xiên thật
+  const a2 = [100, 40], b2 = [240, 40], c2 = [190, 175], d2 = [50, 175]; // AB = 140, AD = hypot(50,135)=144 ≈ (vẽ gần đúng)
+  return poly([a2, b2, c2, d2]) + tick(a2, b2, 1) + tick(b2, c2, 1) + arcM(a2, b2, d2, 16) + arcM(c2, d2, b2, 16) + arcM(b2, c2, a2, 14, 2) + arcM(d2, a2, c2, 14, 2) + [[a2, 'A', -8, -14], [b2, 'B', 10, -12], [c2, 'C', 10, 12], [d2, 'D', -12, 12]].map(([P, n, x, y]) => T([P[0] + x, P[1] + y], n)).join(''); },
+ kiteNo(){ const A = [160, 30], B = [90, 90], C = [160, 205], Dd = [230, 90], O = [160, 90];
+  return poly([A, B, C, Dd]) + L(A, C, 'dg') + L(B, Dd, 'dg') + rt(O, A, Dd, 10) + tick(B, O, 1) + tick(O, Dd, 1) + [[A, 'A', 0, -12], [B, 'B', -12, 0], [C, 'C', 0, 14], [Dd, 'D', 12, 0], [O, 'O', 10, 12]].map(([P, n, x, y]) => T([P[0] + x, P[1] + y], n)).join(''); },
+ diagRh(){ const A = [160, 28], B = [85, 115], C = [160, 202], Dd = [235, 115], O = [160, 115];
+  return poly([A, B, C, Dd]) + L(A, C, 'dg') + L(B, Dd, 'dg') + rt(O, A, Dd, 10) + tick(A, O, 2) + tick(O, C, 2) + tick(B, O, 1) + tick(O, Dd, 1) + [[A, 'M', 0, -12], [B, 'N', -12, 0], [C, 'P', 0, 14], [Dd, 'Q', 12, 0]].map(([P, n, x, y]) => T([P[0] + x, P[1] + y], n)).join(''); },
+ rectAdj(){ const A = [100, 45], B = [240, 45], C = [240, 185], Dd = [100, 185];
+  return poly([A, B, C, Dd]) + [A, B, C, Dd].map((V, i, Q) => rt(V, Q[(i + 1) % 4], Q[(i + 3) % 4], 11)).join('') + tick(A, B, 1) + tick(B, C, 1) + [[A, 'E', -10, -10], [B, 'F', 10, -10], [C, 'G', 10, 12], [Dd, 'H', -10, 12]].map(([P, n, x, y]) => T([P[0] + x, P[1] + y], n)).join(''); },
+ rhRight(){ const A = [160, 20], B = [65, 115], C = [160, 210], Dd = [255, 115];
+  return poly([A, B, C, Dd]) + [[A, B], [B, C], [C, Dd], [Dd, A]].map(([p, q]) => tick(p, q, 1)).join('') + rt(B, A, C, 12) + [[A, 'R', 0, -12], [B, 'S', -12, 0], [C, 'T', 0, 14], [Dd, 'U', 12, 0]].map(([P, n, x, y]) => T([P[0] + x, P[1] + y], n)).join(''); },
+ rectPerp(){ const A = [90, 45], B = [230, 45], C = [230, 185], Dd = [90, 185], O = [160, 115];
+  return poly([A, B, C, Dd]) + L(A, C, 'dg') + L(B, Dd, 'dg') + [A, B, C, Dd].map((V, i, Q) => rt(V, Q[(i + 1) % 4], Q[(i + 3) % 4], 11)).join('') + rt(O, B, A, 9) + [[A, 'A', -10, -10], [B, 'B', 10, -10], [C, 'C', 10, 12], [Dd, 'D', -10, 12]].map(([P, n, x, y]) => T([P[0] + x, P[1] + y], n)).join('') ; },
+ pgBis(){ const A = [60, 180], B = [110, 50], C = [260, 50], Dd = [210, 180];
+  return poly([A, B, C, Dd]) + L(A, C, 'dg') + arcM(A, Dd, C, 22) + arcM(A, C, B, 26) + arcM(B, A, C, 16) + arcM(Dd, C, A, 16) + [[A, 'A', -12, 8], [B, 'B', -8, -12], [C, 'C', 10, -10], [Dd, 'D', 10, 12]].map(([P, n, x, y]) => T([P[0] + x, P[1] + y], n)).join('') + T([160, 218], 'ABCD là hình bình hành; AC là phân giác góc A', 'sm'); }
+};
+
+/* ---------- THỬ THÁCH CUỐI ---------- */
+function quizHtml(s){ return `<article class="act" data-id="${cur}.0"><p class="tag">Thử thách</p><h3>${esc(s.quizTitle)}</h3><div class="row"><input class="f" id="qName" placeholder="Tên và lớp của em" maxlength="40" style="flex:1 1 220px"><button class="btn pri" id="qGo">Bắt đầu</button></div><div id="qBox"></div></article>`; }
+function bindQuiz(s){
+  $('qGo').onclick = () => { const name = $('qName').value.trim(); if (!name){ toast('Nhập tên và lớp trước nhé.'); return; }
+    const Q = shuffle(s.quiz).map(q => { const o = shuffle(q.o.map((_,i)=>i)); return {...q, ord:o}; }); let k = 0, score = 0;
+    const step = () => { if (k >= Q.length) return finish(); const q = Q[k];
+      $('qBox').innerHTML = `<p class="tag">Câu ${k+1}/${Q.length} · đúng ${score}</p><p class="q">${q.q}</p><div class="opts">${q.ord.map(i=>`<button class="opt" data-i="${i}">${q.o[i]}</button>`).join('')}</div><p class="ex exb" hidden></p><div class="row" hidden id="qNx"><button class="btn pri">${k===Q.length-1?'Xem kết quả':'Câu tiếp →'}</button></div>`;
+      $('qBox').querySelectorAll('.opt').forEach(b => b.onclick = () => { const ok = +b.dataset.i===q.a; if (ok) score++; $('qBox').querySelectorAll('.opt').forEach(x => { x.disabled = true; if (+x.dataset.i===q.a) x.classList.add('ok'); }); if (!ok) b.classList.add('no');
+        const ex = $('qBox').querySelector('.ex'); ex.hidden = false; ex.innerHTML = (ok?'✓ ':'✗ ') + q.ex; $('qNx').hidden = false; $('qNx').querySelector('button').onclick = () => { k++; step(); }; }); };
+    const finish = () => { const pass = score >= s.passN;
+      $('qBox').innerHTML = pass ? `<div class="cert"><p class="tag">Giấy chứng nhận</p><h3>${esc(s.certTitle)}</h3><p>Trao cho</p><p class="who">${esc(name)}</p><p>đã trả lời đúng <b>${score}/${Q.length}</b> câu – ${esc(APP.lesson)}</p><p class="ex" style="border:0">${new Date().toLocaleDateString('vi-VN')} · Chụp màn hình để gửi thầy cô</p></div>`
+        : `<p class="fb no">Em đúng ${score}/${Q.length} câu. Cần ít nhất ${s.passN} câu để nhận giấy chứng nhận – ôn lại các phần rồi thử lần nữa nhé!</p><button class="btn pri" id="qAgain">Làm lại</button>`;
+      if (pass) complete(cur+'.0'); else $('qAgain').onclick = () => $('qGo').click(); };
+    step(); };
+}
+/* ---------- TRANG TRÍ ---------- */
+const deco = $('deco'), dx = deco.getContext('2d');
+function drawDeco(){ const d = Math.min(2, devicePixelRatio||1), W = deco.clientWidth, H = deco.clientHeight; deco.width = W*d; deco.height = H*d; dx.setTransform(d,0,0,d,0,0); (APP_DECO)(dx, W, H, ALL.filter(k=>done[k]).length/ALL.length); }
+const APP_DECO = function(x,W,H,p){ const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,'#160c2e'); g.addColorStop(1,'#32185a'); x.fillStyle=g; x.fillRect(0,0,W,H);
+ for(let i=0;i<120;i++){ x.fillStyle='rgba(255,255,255,'+(.2+((i*13)%10)/20)+')'; x.beginPath(); x.arc((i*131)%W,(i*71)%(H*.8),((i*7)%3)*.5+.4,0,7); x.fill(); }
+ const mx=W-Math.min(W*.13,150), my=H*.3, mr=Math.min(50,H*.16); const mg=x.createRadialGradient(mx,my,mr*.2,mx,my,mr*2.4); mg.addColorStop(0,'rgba(255,214,140,.5)'); mg.addColorStop(1,'rgba(255,214,140,0)'); x.fillStyle=mg; x.beginPath(); x.arc(mx,my,mr*2.4,0,7); x.fill(); x.fillStyle='#ffe2a3'; x.beginPath(); x.arc(mx,my,mr,0,7); x.fill();
+ const kite=(cx,cy,w,h,c,rot)=>{ x.save(); x.translate(cx,cy); x.rotate(rot); x.fillStyle=c; x.beginPath(); x.moveTo(0,-h); x.lineTo(w,0); x.lineTo(0,h); x.lineTo(-w,0); x.closePath(); x.fill(); x.strokeStyle='rgba(255,255,255,.55)'; x.lineWidth=1.5; x.beginPath(); x.moveTo(0,-h); x.lineTo(0,h); x.moveTo(-w,0); x.lineTo(w,0); x.stroke();
+   x.strokeStyle='rgba(255,255,255,.4)'; x.beginPath(); x.moveTo(0,h); x.bezierCurveTo(-20,h+30,20,h+50,0,h+80); x.stroke(); x.restore(); };
+ kite(W*.62,H*.35,30,44,'rgba(249,115,22,.9)',.25+p*.1); kite(W*.78,H*.62,22,34,'rgba(168,85,247,.85)',-.2); kite(W*.9,H*.75,16,26,'rgba(250,204,21,.85)',.15);
+ const boxq=(bx,by,s,c)=>{ x.fillStyle=c; x.fillRect(bx,by,s,s); x.fillStyle='rgba(255,255,255,.85)'; x.fillRect(bx+s*.44,by,s*.12,s); x.fillRect(bx,by+s*.44,s,s*.12); x.strokeStyle='rgba(255,255,255,.85)'; x.lineWidth=3; x.beginPath(); x.ellipse(bx+s*.38,by-6,s*.16,7,-.4,0,7); x.ellipse(bx+s*.62,by-6,s*.16,7,.4,0,7); x.stroke(); };
+ boxq(W*.66,H-70,52,'#7c3aed'); boxq(W*.66+64,H-56,40,'#ea580c'); boxq(W*.66+116,H-62,46,'#16a34a');
+ x.fillStyle='rgba(10,5,25,.85)'; [[.7,.15,1],[.83,.2,.7],[.58,.12,.6]].forEach(([fx,fy,s])=>{ const bx=W*fx, by=H*fy; x.beginPath(); x.moveTo(bx,by); x.quadraticCurveTo(bx-12*s,by-10*s,bx-24*s,by-2*s); x.quadraticCurveTo(bx-14*s,by+2*s,bx-8*s,by+8*s); x.quadraticCurveTo(bx-3*s,by+3*s,bx,by+6*s); x.quadraticCurveTo(bx+3*s,by+3*s,bx+8*s,by+8*s); x.quadraticCurveTo(bx+14*s,by+2*s,bx+24*s,by-2*s); x.quadraticCurveTo(bx+12*s,by-10*s,bx,by); x.fill(); });
+ const sh=x.createLinearGradient(0,0,Math.min(W,820),0); sh.addColorStop(0,'rgba(22,12,46,.95)'); sh.addColorStop(.6,'rgba(22,12,46,.6)'); sh.addColorStop(1,'rgba(22,12,46,0)'); x.fillStyle=sh; x.fillRect(0,0,W,H); };
+addEventListener('resize', drawDeco);
+const _refresh = refresh; refresh = function(){ _refresh(); drawDeco(); };
+tabs(); show();
+</script>
+</body>
+</html>
